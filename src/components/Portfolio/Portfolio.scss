@@ -1,0 +1,95 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.portfolio__filters {
+  margin-bottom: $spacing-md;
+}
+
+.portfolio__filter {
+  margin-right: $spacing-sm;
+  padding: 6px 12px;
+  border: 1px solid $color-border;
+  background: #fff;
+  cursor: pointer;
+  font-size: $font-size-base;
+  border-radius: $border-radius;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
+  &.active {
+    background: $color-primary;
+    color: $color-text-light;
+    border-color: $color-primary;
+  }
+
+  &:hover:not(.active) {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.portfolio__grid {
+  margin: 0 (-$spacing-sm);
+}
+
+$portfolio-item-height: 200px;
+
+.portfolio__item {
+  width: 25%;
+  padding: $spacing-sm;
+  box-sizing: border-box;
+}
+
+.portfolio__media {
+  height: $portfolio-item-height;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.portfolio__card {
+  @include card;
+  height: $portfolio-item-height;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.portfolio__card-title {
+  @include heading;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.portfolio__card-text {
+  @include body-text;
+  margin-bottom: $spacing-md;
+  flex: 1;
+  overflow: hidden;
+}
+
+.portfolio__card-link {
+  color: $color-primary;
+  font-size: $font-size-base;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@include respond-to(lg) {
+  .portfolio__item {
+    width: 50%;
+  }
+}
+
+@include respond-to(md) {
+  .portfolio__item {
+    width: 100%;
+  }
+}

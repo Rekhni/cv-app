@@ -1,0 +1,90 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $panel-width;
+  height: 100vh;
+  background-color: $color-panel-bg;
+  color: $color-text-light;
+  z-index: 100;
+  overflow: visible;
+  transition: width 0.3s ease;
+}
+
+.panel__toggle {
+  position: fixed;
+  top: $spacing-md;
+  left: $panel-width;
+  z-index: 110;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-panel-bg;
+  color: $color-text-light;
+  font-size: $font-size-lg;
+  border-radius: 0 $border-radius $border-radius 0;
+  padding: 0;
+  line-height: 1;
+  transition: left 0.3s ease;
+  cursor: pointer;
+}
+
+.panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  padding: $spacing-xl $spacing-lg;
+  padding-top: $spacing-xxl;
+  min-height: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.panel__back {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+}
+
+.panel--collapsed .panel__back {
+  width: auto;
+}
+
+.panel--collapsed {
+  width: $panel-width-collapsed;
+
+  .panel__content {
+    padding: $spacing-lg $spacing-sm;
+    padding-top: $spacing-xxl;
+    align-items: center;
+    gap: $spacing-lg;
+  }
+
+  .panel__toggle {
+    left: $panel-width-collapsed;
+  }
+}
+
+@include respond-to(md) {
+  .panel {
+    transform: translateX(-100%);
+    width: $panel-width;
+  }
+
+  .panel--open {
+    transform: translateX(0);
+  }
+
+  .panel--collapsed {
+    width: $panel-width;
+  }
+
+  .panel__toggle {
+    display: none;
+  }
+}

@@ -1,0 +1,96 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.timeline {
+  height: 30vh;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.timeline__list {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 48px;
+    top: 8px;
+    bottom: 8px;
+    width: 4px;
+    background: $color-primary;
+  }
+}
+
+.timeline__item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: $spacing-xl;
+  padding-left: 56px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timeline__date {
+  position: absolute;
+  left: 0;
+  top: $spacing-md;
+  width: 40px;
+  font-weight: 700;
+  font-size: $font-size-lg;
+  color: $color-text;
+  line-height: 1.4;
+}
+
+.timeline__card {
+  flex: 1;
+  margin-left: $spacing-lg;
+  background: $color-card-bg;
+  padding: $spacing-md $spacing-lg;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 22px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid $color-card-bg;
+  }
+}
+
+.timeline__title {
+  @include heading;
+  margin-bottom: $spacing-sm;
+  color: $color-text;
+}
+
+.timeline__text {
+  @include body-text;
+  color: $color-text-muted;
+  white-space: pre-line;
+}
+
+@include respond-to(md) {
+  .timeline__list::before {
+    left: 40px;
+  }
+
+  .timeline__item {
+    padding-left: 48px;
+  }
+
+  .timeline__date {
+    width: 32px;
+    font-size: $font-size-base;
+  }
+
+  .timeline__card {
+    margin-left: $spacing-md;
+  }
+}

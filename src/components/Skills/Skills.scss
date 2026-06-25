@@ -1,0 +1,74 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.skills__bars {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.skills__row {
+  width: 100%;
+  background: transparent;
+}
+
+.skills__bar {
+  min-width: 80px;
+  height: 36px;
+  background-color: $color-primary;
+  display: flex;
+  align-items: center;
+  padding: 0 $spacing-md;
+  transition: width 0.4s ease;
+}
+
+.skills__label {
+  color: $color-text-light;
+  font-size: $font-size-base;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skills__axis {
+  display: flex;
+  justify-content: space-between;
+  padding-top: $spacing-md;
+  border-top: 1px solid $color-border;
+}
+
+.skills__axis-label {
+  font-size: 12px;
+  color: $color-text-muted;
+  position: relative;
+  padding-top: $spacing-xs;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: $color-border;
+  }
+}
+
+.skills__axis-label:last-child::before {
+  left: auto;
+  right: 0;
+}
+
+@include respond-to(md) {
+  .skills__bar {
+    min-width: 60px;
+    height: 32px;
+    padding: 0 $spacing-sm;
+  }
+
+  .skills__label {
+    font-size: 12px;
+  }
+}

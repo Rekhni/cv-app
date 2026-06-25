@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin heading {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  margin: 0;
+}
+
+@mixin body-text {
+  font-size: $font-size-base;
+  line-height: 1.5;
+}
+
+@mixin card {
+  background-color: $color-card-bg;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+}

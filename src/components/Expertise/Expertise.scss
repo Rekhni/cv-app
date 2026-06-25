@@ -1,0 +1,44 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.expertise {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.expertise__item {
+  display: flex;
+  gap: $spacing-xxl;
+}
+
+.expertise__left {
+  flex: 0 0 140px;
+}
+
+.expertise__company,
+.expertise__job {
+  @include heading;
+}
+
+.expertise__date {
+  margin-top: $spacing-xs;
+  color: $color-text-muted;
+  @include body-text;
+}
+
+.expertise__description {
+  margin-top: $spacing-xs;
+  @include body-text;
+}
+
+@include respond-to(md) {
+  .expertise__item {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  .expertise__left {
+    flex: none;
+  }
+}

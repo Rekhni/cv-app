@@ -1,0 +1,19 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.box__title {
+  color: $color-primary;
+  font-size: $font-size-xxl;
+  font-weight: 700;
+  margin-bottom: $spacing-lg;
+}
+
+.box__content {
+  @include body-text;
+}
+
+@include respond-to(md) {
+  .box__title {
+    font-size: $font-size-xl;
+  }
+}

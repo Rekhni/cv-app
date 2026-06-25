@@ -1,0 +1,31 @@
+@use '../../assets/styles/variables' as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: $spacing-md;
+  background-color: $color-panel-bg;
+  color: $color-text-light;
+  font-weight: 700;
+  font-size: $font-size-base;
+  border-radius: $border-radius;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: darken($color-primary, 8%);
+  }
+}
+
+.button__icon {
+  font-size: $font-size-lg;
+}
+
+.button--collapsed {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0 auto;
+}

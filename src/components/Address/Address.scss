@@ -1,0 +1,50 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+
+.address__list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.address__item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+}
+
+.address__icon {
+  color: $color-primary;
+  font-size: 22px;
+  width: 30px;
+  margin-top: 2px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.address__content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.address__title {
+  font-weight: 700;
+  font-size: $font-size-lg;
+  color: $color-panel-bg;
+  line-height: 1.3;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.address__subtitle {
+  @include body-text;
+  color: $color-text-muted;
+
+  &:hover {
+    color: $color-primary;
+  }
+}

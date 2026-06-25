@@ -1,0 +1,42 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.feedback__item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.feedback__reporter {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.feedback__reporter-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.feedback__reporter-name {
+  @include heading;
+}
+
+.feedback__reporter-cite {
+  color: $color-primary;
+  @include body-text;
+}
+
+@include respond-to(md) {
+  .feedback__reporter {
+    flex-wrap: wrap;
+  }
+}

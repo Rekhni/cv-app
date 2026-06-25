@@ -1,0 +1,7 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.info__text {
+  @include card;
+  @include body-text;
+}

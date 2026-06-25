@@ -1,0 +1,44 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.inner__section {
+  margin-bottom: $spacing-xxl;
+  scroll-margin-top: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.inner__scroll-top {
+  position: fixed;
+  right: $spacing-xl;
+  bottom: 0;
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-panel-bg;
+  color: $color-text-light;
+  border-radius: $border-radius $border-radius 0 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: darken($color-panel-bg, 6%);
+  }
+}
+
+.inner__scroll-top-icon {
+  font-size: $font-size-lg;
+}
+
+@include respond-to(md) {
+  .inner__scroll-top {
+    right: $spacing-md;
+    width: 44px;
+    height: 44px;
+  }
+}

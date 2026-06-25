@@ -1,0 +1,51 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.home {
+  flex: 1;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.home__overlay {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xl;
+  padding: $spacing-xl;
+  background: url('../../assets/images/bg-img.png') center / cover no-repeat;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.home__cta {
+  display: inline-block;
+  padding: $spacing-md $spacing-xl;
+  color: $color-text-light;
+  font-size: $font-size-base;
+  font-weight: 700;
+  border: 1px solid rgba($color-text-light, 0.4);
+  border-radius: $border-radius;
+  background: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.6);
+    border-color: $color-text-light;
+  }
+}

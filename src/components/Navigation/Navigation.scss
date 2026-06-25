@@ -1,0 +1,49 @@
+@use '../../assets/styles/variables' as *;
+
+.navigation__list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  width: 100%;
+}
+
+.navigation__item a {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  color: rgba($color-text-light, 0.7);
+  font-size: $font-size-base;
+  border-radius: $border-radius;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-text-light;
+  }
+
+  &.active {
+    color: $color-primary;
+
+    .navigation__icon {
+      color: $color-primary;
+    }
+  }
+}
+
+.navigation__icon {
+  width: 18px;
+  font-size: $font-size-base;
+  color: rgba($color-text-light, 0.7);
+  flex-shrink: 0;
+}
+
+.navigation--collapsed {
+  .navigation__item a {
+    justify-content: center;
+    padding: $spacing-sm;
+  }
+
+  .navigation__label {
+    display: none;
+  }
+}
