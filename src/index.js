@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import './assets/styles/main.scss'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { store } from './store/store'
+import { store } from './app/store'
 import makeServer from './services/server'
 
 if (process.env.NODE_ENV === 'development') {

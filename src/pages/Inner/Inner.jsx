@@ -14,13 +14,17 @@ import { ABOUT_TEXT } from '../../utils/constants'
 
 import {
   loadEducations,
-  loadExperience,
-  loadFeedbacks,
   selectEducations,
-  selectEducationsStatus,
-  selectExperience,
+  selectEducationsStatus
+} from '../../features/education/educationSlice'
+import {
+  loadExperience,
+  selectExperience
+} from '../../features/experience/experienceSlice'
+import {
+  loadFeedbacks,
   selectFeedbacks
-} from '../../store/features/cv/cvSlice'
+} from '../../features/feedbacks/feedbacksSlice'
 import './Inner.scss'
 
 const Inner = () => {

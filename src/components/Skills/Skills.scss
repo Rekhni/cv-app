@@ -38,9 +38,27 @@
 }
 
 .skills__field {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: $spacing-md;
+  row-gap: $spacing-xs;
+  align-items: center;
+
+  .skills__form-label {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 100px;
+  }
+
+  .skills__input {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .skills__error {
+    grid-column: 2;
+    grid-row: 2;
+  }
 }
 
 .skills__form-label {
@@ -151,8 +169,27 @@
 }
 
 @include respond-to(md) {
-  .skills__fields {
-    flex-direction: column;
+  .skills__field {
+    grid-template-columns: 1fr;
+
+    .skills__form-label,
+    .skills__input,
+    .skills__error {
+      grid-column: 1;
+    }
+
+    .skills__form-label {
+      grid-row: 1;
+      min-width: 0;
+    }
+
+    .skills__input {
+      grid-row: 2;
+    }
+
+    .skills__error {
+      grid-row: 3;
+    }
   }
 
   .skills__edit-btn {

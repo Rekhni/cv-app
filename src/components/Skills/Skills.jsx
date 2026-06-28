@@ -8,7 +8,7 @@ import {
   addSkill,
   loadSkills,
   selectSkills
-} from '../../store/features/cv/cvSlice'
+} from '../../features/skills/skillsSlice'
 import './Skills.scss'
 
 const initialValues = {

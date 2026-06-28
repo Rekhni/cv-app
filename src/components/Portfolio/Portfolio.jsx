@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectPortfolio, loadPortfolio } from '../../store/features/cv/cvSlice'
+import { selectPortfolio, loadPortfolio } from '../../features/portfolio/portfolioSlice'
 import './Portfolio.scss'
 
 const portfolioFilters = [
