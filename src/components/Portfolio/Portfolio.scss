@@ -28,15 +28,15 @@
 }
 
 .portfolio__grid {
-  margin: 0 (-$spacing-sm);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
 }
 
 $portfolio-item-height: 200px;
 
 .portfolio__item {
-  width: 25%;
-  padding: $spacing-sm;
-  box-sizing: border-box;
+  min-width: 0;
 }
 
 .portfolio__media {
@@ -53,24 +53,23 @@ $portfolio-item-height: 200px;
 
 .portfolio__card {
   @include card;
-  height: $portfolio-item-height;
+  min-height: $portfolio-item-height;
+  height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .portfolio__card-title {
   @include heading;
   color: $color-primary;
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-sm;
 }
 
 .portfolio__card-text {
   @include body-text;
   margin-bottom: $spacing-md;
   flex: 1;
-  overflow: hidden;
 }
 
 .portfolio__card-link {
@@ -83,13 +82,13 @@ $portfolio-item-height: 200px;
 }
 
 @include respond-to(lg) {
-  .portfolio__item {
-    width: 50%;
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @include respond-to(md) {
-  .portfolio__item {
-    width: 100%;
+  .portfolio__grid {
+    grid-template-columns: 1fr;
   }
 }

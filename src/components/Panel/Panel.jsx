@@ -5,7 +5,8 @@ import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import PhotoBox from '../PhotoBox/PhotoBox'
 import Navigation from '../Navigation/Navigation'
 import Button from '../Button/Button'
-import { profile } from '../../data/profile'
+import { PROFILE } from '../../utils/constants'
+
 import './Panel.scss'
 
 const Panel = ({ isOpen, collapsed, onToggleCollapse, onNavigate }) => {
@@ -23,7 +24,7 @@ const Panel = ({ isOpen, collapsed, onToggleCollapse, onNavigate }) => {
       </button>
 
       <div className='panel__content'>
-        <PhotoBox variant='compact' collapsed={collapsed} {...profile} />
+        <PhotoBox variant='compact' collapsed={collapsed} {...PROFILE} />
         <Navigation collapsed={collapsed} onNavigate={onNavigate} />
         <Link to='/' onClick={onNavigate} className='panel__back'>
           <Button icon={faArrowLeft} text='Go back' collapsed={collapsed} />

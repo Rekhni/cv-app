@@ -6,15 +6,16 @@
 }
 
 .photo-box__avatar {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto $spacing-md;
+  border: 1px solid $color-text-light;
 }
 
 .photo-box__name {
-  font-size: $font-size-xl;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: $spacing-xs;
 }
@@ -56,27 +57,30 @@
 
 .photo-box--full {
   .photo-box__avatar {
-    width: 140px;
-    height: 140px;
+    width: 163px;
+    height: 163px;
     border: 3px solid $color-text-light;
   }
 
   .photo-box__name {
-    font-size: $font-size-xxl;
+    font-size: 45px;
     color: $color-text-light;
     margin-bottom: $spacing-md;
   }
 
   .photo-box__title {
     color: $color-text-light;
-    font-size: $font-size-lg;
+    font-size: 25px;
     margin-bottom: $spacing-md;
+    font-weight: 600;
   }
 
   .photo-box__description {
     color: rgba($color-text-light, 0.85);
     max-width: 480px;
     margin: 0 auto;
+    font-weight: 400;
+    font-size: 14px;
   }
 }
 

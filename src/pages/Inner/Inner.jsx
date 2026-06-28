@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
@@ -9,12 +10,32 @@ import Portfolio from '../../components/Portfolio/Portfolio'
 import Address from '../../components/Address/Address'
 import Feedback from '../../components/Feedback/Feedback'
 import Skills from '../../components/Skills/Skills'
-import { aboutText, educationData, experienceData, feedbackData, skillsData } from '../../data/cvData'
+import { ABOUT_TEXT } from '../../utils/constants'
+
+import {
+  loadEducations,
+  loadExperience,
+  loadFeedbacks,
+  selectEducations,
+  selectEducationsStatus,
+  selectExperience,
+  selectFeedbacks
+} from '../../store/features/cv/cvSlice'
 import './Inner.scss'
 
 const Inner = () => {
   const location = useLocation()
+  const dispatch = useDispatch()
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const educationData = useSelector(selectEducations)
+  const educationsStatus = useSelector(selectEducationsStatus)
+  const experienceData = useSelector(selectExperience)
+  const feedbackData = useSelector(selectFeedbacks)
+  useEffect(() => {
+    dispatch(loadEducations())
+    dispatch(loadExperience())
+    dispatch(loadFeedbacks())
+  }, [dispatch])
 
   useEffect(() => {
     const sectionId = location.hash ? location.hash.slice(1) : 'about'
@@ -39,11 +60,20 @@ const Inner = () => {
   return (
     <div className='inner'>
       <section className='inner__section' id='about'>
-        <Box title='About me' content={aboutText} />
+        <Box title='About me' content={ABOUT_TEXT} />
       </section>
 
       <section className='inner__section' id='education'>
-        <Box title='Education' content={<TimeLine data={educationData} />} />
+        <Box
+          title='Education'
+          content={
+            <TimeLine
+              data={educationData}
+              isLoading={educationsStatus === 'loading'}
+              isError={educationsStatus === 'failed'}
+            />
+          }
+        />
       </section>
 
       <section className='inner__section' id='experience'>
@@ -51,7 +81,7 @@ const Inner = () => {
       </section>
 
       <section className='inner__section' id='skills'>
-        <Box title='Skills' content={<Skills data={skillsData} />} />
+        <Skills />
       </section>
 
       <section className='inner__section' id='portfolio'>

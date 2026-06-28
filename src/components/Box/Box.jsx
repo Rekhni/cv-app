@@ -1,11 +1,14 @@
 import React from 'react'
 import './Box.scss'
 
-const Box = ({ title, content }) => {
+const Box = ({ title, content, action }) => {
   return (
     <div className='box'>
+      <div className='box__header'>
         <h2 className='box__title'>{title}</h2>
-        <div className='box__content'>{content}</div>
+        {action}
+      </div>
+      <div className='box__content'>{content}</div>
     </div>
   )
 }

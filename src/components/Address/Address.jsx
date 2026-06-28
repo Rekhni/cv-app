@@ -1,43 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFacebook, faSkype } from '@fortawesome/free-brands-svg-icons'
+import { selectContacts, loadContacts } from '../../store/features/cv/cvSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import './Address.scss'
-
-const contacts = [
-  { icon: faPhone, title: '500 342 242', href: 'tel:500342242', external: false },
-  { icon: faEnvelope, title: 'office@kamsolutions.pl', href: 'mailto:office@kamsolutions.pl', external: false },
-  {
-    icon: faTwitter,
-    title: 'Twitter',
-    subtitle: 'https://twitter.com/wordpress',
-    href: 'https://twitter.com/wordpress',
-    external: true
-  },
-  {
-    icon: faFacebook,
-    title: 'Facebook',
-    subtitle: 'https://www.facebook.com/facebook',
-    href: 'https://www.facebook.com/facebook',
-    external: true
-  },
-  {
-    icon: faSkype,
-    title: 'Skype',
-    subtitle: 'kamsolutions.pl',
-    href: 'skype:kamsolutions.pl',
-    external: false
-  }
-]
 
 const linkProps = (external) =>
   external ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 
 const Address = () => {
+  const dispatch = useDispatch()
+  const contactsData = useSelector(selectContacts)
+
+  useEffect(() => {
+    dispatch(loadContacts())
+  }, [dispatch])
+
   return (
     <ul className='address__list'>
-      {contacts.map((contact, index) => (
-        <li className='address__item' key={index}>
+      {contactsData.map((contact) => (
+        <li className='address__item' key={contact.id}>
           <FontAwesomeIcon icon={contact.icon} className='address__icon' />
           <div className='address__content'>
             <a className='address__title' href={contact.href} {...linkProps(contact.external)}>

@@ -2,9 +2,37 @@
 @use '../../assets/styles/mixins' as *;
 
 .timeline {
+  position: relative;
   height: 30vh;
   max-height: 80vh;
   overflow-y: auto;
+}
+
+.timeline__loading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+
+  .icon {
+    font-size: $font-size-xl;
+    color: $color-primary;
+  }
+}
+
+.timeline__error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 100%;
+  padding: $spacing-md;
+  text-align: center;
+  font-size: 12px;
+  color: #d9534f;
 }
 
 .timeline__list {
