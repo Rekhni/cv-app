@@ -96,15 +96,26 @@
 
 .skills__submit {
   padding: $spacing-sm $spacing-lg;
-  background-color: $color-panel-bg;
+  background-color: $color-text-muted;
   color: $color-text-light;
   font-size: $font-size-base;
   font-weight: 700;
   border-radius: $border-radius;
+  border: none;
+  cursor: not-allowed;
   transition: background-color 0.2s;
 
-  &:hover {
-    background-color: darken($color-panel-bg, 6%);
+  &:not(:disabled) {
+    background-color: $color-primary;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($color-primary, 6%);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.85;
   }
 }
 

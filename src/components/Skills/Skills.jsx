@@ -9,6 +9,11 @@ import {
   loadSkills,
   selectSkills
 } from '../../features/skills/skillsSlice'
+import {
+  SKILL_FORM_ERRORS,
+  SKILL_RANGE_MAX,
+  SKILL_RANGE_MIN
+} from '../../utils/constants'
 import './Skills.scss'
 
 const initialValues = {
@@ -16,20 +21,30 @@ const initialValues = {
   level: ''
 }
 
-const validateSkillForm = (values) => {
+const isNumericValue = (value) => {
+  if (value === '' || value == null) {
+    return false
+  }
+
+  return !Number.isNaN(Number(value)) && String(value).trim() !== ''
+}
+
+export const validateSkillForm = (values) => {
   const errors = {}
 
   if (!values.name.trim()) {
-    errors.name = 'Skill name is required'
+    errors.name = SKILL_FORM_ERRORS.nameRequired
   }
 
-  if (!values.level) {
-    errors.level = 'Skill range is required'
+  if (!isNumericValue(values.level)) {
+    errors.level = SKILL_FORM_ERRORS.levelNumber
   } else {
     const level = Number(values.level)
 
-    if (Number.isNaN(level) || level < 1 || level > 100) {
-      errors.level = 'Enter a value between 1 and 100'
+    if (level < SKILL_RANGE_MIN) {
+      errors.level = SKILL_FORM_ERRORS.levelMin
+    } else if (level > SKILL_RANGE_MAX) {
+      errors.level = SKILL_FORM_ERRORS.levelMax
     }
   }
 
@@ -46,9 +61,12 @@ const Skills = () => {
   }, [dispatch])
 
   const handleSubmit = (values, { resetForm }) => {
-    const clampedLevel = Math.min(100, Math.max(1, Number(values.level)))
-
-    dispatch(addSkill({ name: values.name.trim(), level: clampedLevel }))
+    dispatch(
+      addSkill({
+        name: values.name.trim(),
+        level: Number(values.level)
+      })
+    )
     resetForm()
   }
 
@@ -73,9 +91,10 @@ const Skills = () => {
             <Formik
               initialValues={initialValues}
               validate={validateSkillForm}
+              validateOnMount
               onSubmit={handleSubmit}
             >
-              {({ errors, touched }) => (
+              {({ errors, touched, isValid }) => (
                 <Form className='skills__form'>
                   <div className='skills__fields'>
                     <div className='skills__field'>
@@ -104,10 +123,9 @@ const Skills = () => {
                         className={`skills__input${
                           errors.level && touched.level ? ' skills__input--error' : ''
                         }`}
-                        type='number'
+                        type='text'
                         name='level'
-                        min='1'
-                        max='100'
+                        inputMode='numeric'
                         placeholder='Enter skill range'
                       />
                       {errors.level && touched.level && (
@@ -115,7 +133,11 @@ const Skills = () => {
                       )}
                     </div>
                   </div>
-                  <button type='submit' className='skills__submit'>
+                  <button
+                    type='submit'
+                    className='skills__submit'
+                    disabled={!isValid}
+                  >
                     Add skill
                   </button>
                 </Form>

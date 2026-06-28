@@ -15,3 +15,13 @@ export const EDUCATION_ERROR_MESSAGE =
   'Something went wrong; please review your server connection!'
 
 export const SKILLS_STORAGE_KEY = 'cv-app-skills'
+
+export const SKILL_RANGE_MIN = 10
+export const SKILL_RANGE_MAX = 100
+
+export const SKILL_FORM_ERRORS = {
+  nameRequired: 'Skill name is a required field',
+  levelNumber: "Skill range must be a 'number' type",
+  levelMin: 'Skill range must be greater than or equal to 10',
+  levelMax: 'Skill range must be less than or equal to 100'
+}
