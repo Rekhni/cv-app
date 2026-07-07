@@ -180,7 +180,7 @@ export default function makeServer() {
               type: 'text',
               category: 'code',
               title: 'Mahabbat App',
-              text: 'Kazakh analog of Tinder app for finding a soulmate.❤️',
+              text: 'Kazakh version of Tinder app for finding a soulmate.❤️',
               sourceUrl: 'https://mahabbat-app.onrender.com/'
             }
           ]
