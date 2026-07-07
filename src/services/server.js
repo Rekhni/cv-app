@@ -176,36 +176,12 @@ export default function makeServer() {
               sourceUrl: 'https://marvel-app-lemon-two.vercel.app/'
             },
             {
-              id: 'wordpress-portfolio',
+              id: 'mahabbat-app',
               type: 'text',
-              category: 'ui',
-              title: 'WordPress — Portfolio',
-              text: 'Personal portfolio website built with WordPress.',
-              sourceUrl: 'https://rekhni.com/'
-            },
-            {
-              id: 'wordpress-travel-blog',
-              type: 'text',
-              category: 'ui',
-              title: 'WordPress — Travel Blog',
-              text: 'Travel blog website with custom theme and content management.',
-              sourceUrl: 'https://blog.rekhni.com/'
-            },
-            {
-              id: 'wordpress-corporate',
-              type: 'text',
-              category: 'ui',
-              title: 'WordPress — Corporate',
-              text: 'Corporate theme website for business presentation and services.',
-              sourceUrl: 'https://corporatewebsite.rekhni.com/'
-            },
-            {
-              id: 'wordpress-southquick',
-              type: 'text',
-              category: 'ui',
-              title: 'WordPress — SouthQuick',
-              text: 'eCommerce website built with WordPress and Elementor.',
-              sourceUrl: 'https://ecommerce.rekhni.com/shop/'
+              category: 'code',
+              title: 'Mahabbat App',
+              text: 'Kazakh analog of Tinder app for finding a soulmate.❤️',
+              sourceUrl: 'https://mahabbat-app.onrender.com/'
             }
           ]
       }))

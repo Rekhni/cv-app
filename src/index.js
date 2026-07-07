@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals'
 import { store } from './app/store'
 import makeServer from './services/server'
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'test') {
   makeServer()
 }
 
