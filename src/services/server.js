@@ -182,6 +182,14 @@ export default function makeServer() {
               title: 'Mahabbat App',
               text: 'Kazakh version of Tinder app for finding a soulmate.❤️',
               sourceUrl: 'https://mahabbat-app.onrender.com/'
+            },
+            {
+              id: 'qstream-app',
+              type: 'text',
+              category: 'code',
+              title: 'Qstream App',
+              text: 'Qstream - a streaming platform for watching movies and TV shows.🍿',
+              sourceUrl: 'https://qstream-app.onrender.com/'
             }
           ]
       }))
