@@ -190,6 +190,14 @@ export default function makeServer() {
               title: 'Qstream App',
               text: 'Qstream - a streaming platform for watching movies and TV shows.🍿',
               sourceUrl: 'https://qstream-app.onrender.com/'
+            },
+            {
+              id: 'maman-app',
+              type: 'text',
+              category: 'code',
+              title: 'Maman App',
+              text: 'Maman - platform for professional development and networking.👉🏼👈🏼',
+              sourceUrl: 'https://maman-app-r3ul.onrender.com/'
             }
           ]
       }))
