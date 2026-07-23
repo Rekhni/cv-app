@@ -198,6 +198,14 @@ export default function makeServer() {
               title: 'Maman App',
               text: 'Maman - platform for professional development and networking.👉🏼👈🏼',
               sourceUrl: 'https://maman-app-r3ul.onrender.com/'
+            },
+            {
+              id: 'codeOrda-app',
+              type: 'text',
+              category: 'code',
+              title: 'Code Orda',
+              text: 'Dip into the repositories of the best developers in the world.👨‍💻',
+              sourceUrl: 'https://codeorda-app.onrender.com/'
             }
           ]
       }))
