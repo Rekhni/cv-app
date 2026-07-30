@@ -206,6 +206,14 @@ export default function makeServer() {
               title: 'Code Orda',
               text: 'Dip into the repositories of the best developers in the world.👨‍💻',
               sourceUrl: 'https://codeorda-app.onrender.com/'
+            },
+            {
+              id: 'expense-tracker-app',
+              type: 'text',
+              category: 'code',
+              title: 'Expense Tracker App',
+              text: 'Expense Tracker App - a simple app for tracking your expenses💰',
+              sourceUrl: 'https://expense-tracker-app-yh4p.onrender.com/'
             }
           ]
       }))
