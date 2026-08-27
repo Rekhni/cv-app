@@ -112,12 +112,12 @@ export default function makeServer() {
       this.get('/api/portfolio', () => ({
         portfolio: [
             {
-              id: 'ign-kz',
-              type: 'text',
+              id: 'korme-app',
+              type: 'type',
               category: 'ui',
-              title: 'IGN — Institute of Geological Sciences',
-              text: 'Multi-page, multi-language website for the K.I. Satpayev Institute of Geological Sciences.',
-              sourceUrl: 'https://ign.kz/'
+              title: 'Korme App',
+              text: 'KormeApp — A social network to share posts, follow people, and stay connected.✌🏼',
+              sourceUrl: 'https://korme-app.vercel.app/'
             },
             {
               id: 'osekchat',
@@ -216,13 +216,13 @@ export default function makeServer() {
               sourceUrl: 'https://expense-tracker-app-yh4p.onrender.com/'
             },
             {
-              id: 'korme-app',
-              type: 'type',
+              id: 'ign-kz',
+              type: 'text',
               category: 'ui',
-              title: 'Korme App',
-              text: 'KormeApp — A social network to share posts, follow people, and stay connected.✌🏼',
-              sourceUrl: 'https://korme-app.vercel.app/'
-            }
+              title: 'IGN — Institute of Geological Sciences',
+              text: 'Multi-page, multi-language website for the K.I. Satpayev Institute of Geological Sciences.',
+              sourceUrl: 'https://ign.kz/'
+            },
           ]
       }))
 
