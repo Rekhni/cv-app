@@ -223,6 +223,14 @@ export default function makeServer() {
               text: 'Multi-page, multi-language website for the K.I. Satpayev Institute of Geological Sciences.',
               sourceUrl: 'https://ign.kz/'
             },
+            {
+              id: 'basqos',
+              type: "text",
+              category: "code",
+              title: "BasQos",
+              text: "Modern platform for job interviews",
+              sourceUrl: ""
+            }
           ]
       }))
 
