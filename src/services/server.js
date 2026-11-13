@@ -229,7 +229,7 @@ export default function makeServer() {
               category: "code",
               title: "BasQos",
               text: "Modern platform for job interviews",
-              sourceUrl: ""
+              sourceUrl: "https://basqos-interview-platform.vercel.app/"
             }
           ]
       }))
